@@ -22,7 +22,7 @@ const Home = () => {
                     headerShadowVisible: false,
                     headerTitle: "",
                     headerLeft: () => <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />,
-                    headerRight: () => <ScreenHeaderBtn iconUrl={icons.profile} dimension="100%" />
+                    headerRight: () => <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
                 }}
             />
             <ScrollView showsVerticalScrollIndicator={false}>
