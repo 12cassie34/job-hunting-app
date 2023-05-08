@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import { Job } from '../types/types'
+
 export enum EndPoint {
-    Search = 'Search',
+    Search = 'search',
     SearchFilters = 'search-filters',
     JobDetails = 'job-details',
     EstimatedSalary = 'estimated-salary'
@@ -18,7 +20,7 @@ interface UseFetch {
 }
 
 const useFetch = ({ endPoint, paramsValue }: UseFetch) => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState<Job[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(null)
 

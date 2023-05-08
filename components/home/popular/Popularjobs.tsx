@@ -30,10 +30,10 @@ const Popularjobs = () => {
           : isError 
                 ? <Text>Something weng wrong.</Text>
                 : <FlatList
-                    data={[1, 2, 4, 4]}
+                    data={data}
                     renderItem={({ item }) => {
                       return (
-                        <PopularJobCard item={item} />
+                        <PopularJobCard job={item} selectedJob="" handleCardPress={() => {}} />
                       )
                     }}
                     keyExtractor={item => item?.job_id}
