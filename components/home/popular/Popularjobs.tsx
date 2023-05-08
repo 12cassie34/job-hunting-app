@@ -3,12 +3,18 @@ import { View, Text, TouchableOpacity, ActivityIndicator, FlatList } from 'react
 
 import { COLORS, SIZES } from '../../../constants'
 import styles from './popularjobs.style'
+import useFetch, { EndPoint } from '../../../hook/useFetch'
 
 import PopularJobCard from '../../common/cards/popular/PopularJobCard'
 
 const Popularjobs = () => {
-  const isLoading = false;
-  const isError = false;
+  const { data, isError, isLoading } = useFetch({
+    endPoint: EndPoint.Search,
+    paramsValue: {
+      query: 'React',
+      num_pages: '1'
+    }
+  })
 
   return (
     <View style={styles.container}>
