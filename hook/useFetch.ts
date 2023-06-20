@@ -13,7 +13,8 @@ export enum EndPoint {
 interface UseFetch {
     endPoint: EndPoint,
     paramsValue: {
-        query: string,
+        job_id?: string | string[],
+        query?: string,
         page?: string,
         num_pages?: string
     }

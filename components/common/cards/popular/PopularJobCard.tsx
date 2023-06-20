@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 import styles from './popularjobcard.style'
 import { Job } from '../../../../types/types'
 import { checkImageURL } from '../../../../utils/validation'
+import { imagePlaceholder } from '../../../../constants/index';
 
 interface PopularJobCard {
   job: Job,

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native'
+import React, { FunctionComponent, useState } from 'react'
+import { View, Text, TextInput, TouchableOpacity, Image, NativeSyntheticEvent, TextInputChangeEventData } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import { useRouter } from 'expo-router'
 
@@ -9,7 +9,13 @@ import { SIZES, icons } from '../../../constants'
 
 const jobTypes = ['Full-time', 'Part-time', 'Contractor']
 
-const Welcome = () => {
+interface WelcomeProps {
+  searchTerm: string;
+  handleChangeSearchTerm: (searchTerm: string) => void;
+  handleSearch: () => void;
+}
+
+const Welcome: FunctionComponent<WelcomeProps> = ({ searchTerm, handleChangeSearchTerm, handleSearch }) => {
   const [activeJobType, setActiveJobType] = useState('Full-time')
   const router = useRouter()
 
@@ -23,11 +29,13 @@ const Welcome = () => {
         <View style={styles.searchWrapper}>
           <TextInput 
             style={styles.searchInput} 
-            value="" 
-            onChange={() => {}} 
+            value={searchTerm}
+            onChange={(text) => {
+              handleChangeSearchTerm(text)
+            }} 
             placeholder='What are your looking for?' />
         </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
+        <TouchableOpacity style={styles.searchBtn} onPress={handleSearch}>
           <Image 
             source={icons.search}
             resizeMode='contain'
