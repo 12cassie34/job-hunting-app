@@ -30,7 +30,7 @@ const Welcome: FunctionComponent<WelcomeProps> = ({ searchTerm, handleChangeSear
           <TextInput 
             style={styles.searchInput} 
             value={searchTerm}
-            onChange={(text) => {
+            onChangeText={(text) => {
               handleChangeSearchTerm(text)
             }} 
             placeholder='What are your looking for?' />

@@ -30,7 +30,11 @@ const JobDetails = () => {
         }
       });
 
-    const onRefresh = () => {}
+    const onRefresh = useCallback(() => {
+        setRefreshing(true);
+        refetch();
+        setRefreshing(false);
+    }, []);
     const onChangeActiveTab = (tab: DetailTab) => {
         setActiveTab(tab);
     }
